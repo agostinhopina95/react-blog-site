@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
+const articles = require("./routes/api/articles");
 
 const app = express();
 
@@ -18,6 +19,7 @@ mongoose
 
 // Routes
 app.use("/api/users", users);
+app.use("/api/articles", articles);
 
 app.get("/", (req, res) => {
   res.send("Hello world!");
