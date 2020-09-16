@@ -14,7 +14,7 @@ const userSchema = new Schema({
   },
   address: {
     required: false,
-    type: String,
+    type: Array,
   },
   image_url: {
     required: false,

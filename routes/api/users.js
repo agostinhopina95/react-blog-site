@@ -18,8 +18,8 @@ router.get("/", async (req, res) => {
 
 // CREATE USER
 router.post("/", async (req, res) => {
-  const { name, email, address, image_url } = req.body;
-
+  const { name, email, street, city, image_url } = req.body;
+  const address = [street, city];
   const newUser = new User({
     name,
     email,
