@@ -1,0 +1,13 @@
+textarea {
+    resize: none;
+}
+
+.btn-operation {
+    padding: 48px;
+    padding-bottom: 0;
+}
+
+.btn-search {
+    padding: 0 48px;
+    padding-bottom: 30px;
+}
