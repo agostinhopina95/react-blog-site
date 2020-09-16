@@ -5,7 +5,7 @@ class ManagerArticle extends Component {
     return (
       <div className="container">
         <div className="row mt-5">
-          <div className="col-sm">
+          <div className="col-sm show-div">
             <h3 className="mb-3">Update Article</h3>
             <form className="">
               <fieldset>

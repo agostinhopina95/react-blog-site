@@ -4,49 +4,27 @@ class SearchResult extends Component {
   render() {
     return (
       <div className="container">
+        <hr />
         <h3 className="mb-5">Search Result</h3>
-        <div className="row">
-          <div className="col-6 mb-5">
-            <div className="card">
-              <img
-                className="card-img-top"
-                src="1/logo192.png"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+        <div className="row articles">
+          <div className="col-6 mb-4">
+            <div class="card h-100">
+              <h4 class="card-header">Card Title</h4>
+              <div class="card-body">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Sapiente esse necessitatibus neque.
                 </p>
               </div>
             </div>
           </div>
-          <div className="col-6 mb-5">
-            <div className="card">
-              <img
-                className="card-img-top"
-                src="1/logo192.png"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-6 mb-5">
-            <div className="card">
-              <img
-                className="card-img-top"
-                src="1/logo192.png"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+          <div className="col-6 mb-4">
+            <div class="card h-100">
+              <h4 class="card-header">Card Title</h4>
+              <div class="card-body">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Sapiente esse necessitatibus neque.
                 </p>
               </div>
             </div>
