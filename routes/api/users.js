@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// CREATE USER
 router.post("/", async (req, res) => {
   const { name, email, address, image_url } = req.body;
 
@@ -29,6 +30,40 @@ router.post("/", async (req, res) => {
   try {
     const user = await newUser.save();
     res.json(user);
+  } catch (e) {
+    res.json({ Error: `Error is ${e}` });
+  }
+});
+
+// READ USER
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (user.length == 0) {
+      res.json({ err: `No User Exist with this id` });
+    } else {
+      res.json(user);
+    }
+  } catch (e) {
+    res.json({ Error: `Error is ${e}` });
+  }
+});
+
+// UPDATE USER
+router.put("/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    res.json({ success: "User updated successfully!" });
+  } catch (e) {
+    res.json({ Error: `Error is ${e}` });
+  }
+});
+
+// DELETE USER
+router.delete("/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndRemove({ _id: req.params.id });
+    res.json({ success: `User deleted successfully!` });
   } catch (e) {
     res.json({ Error: `Error is ${e}` });
   }
