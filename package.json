@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "blog-install": "npm install --prefix blog",
     "start": "npm run server",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "blog": "npm start --prefix blog",
+    "dev": "concurrently \"npm run server\" \"npm run blog\""
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,7 @@
     "NodeJS",
     "MongoDB"
   ],
-  "author": "Agostinho Ramos",
+  "author": "Agostinho Pina Ramos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/agostinhopina95/react-blog-site/issues"
