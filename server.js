@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const articles = require("./routes/api/articles");
+const rand_articles = require("./routes/api/rand_articles");
 
 const app = express();
 
@@ -20,6 +21,7 @@ mongoose
 // Routes
 app.use("/api/users", users);
 app.use("/api/articles", articles);
+app.use("/articles/random", rand_articles);
 
 app.get("/", (req, res) => {
   res.send("Hello world!");

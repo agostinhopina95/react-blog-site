@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div class="main-navbar">
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
-          <a className="navbar-brand" href="/about">
+          <Link className="navbar-brand" to="/">
             <i class="logo fa fa-adn"></i> Article Blog
-          </a>
+          </Link>
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -22,9 +23,9 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link text-light" href="about.html">
+                <Link className="nav-link text-light" to="/about">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
