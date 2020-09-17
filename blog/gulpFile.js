@@ -9,7 +9,10 @@ var paths = {
     dest: "public",
   },
   script: {
-    src: ["node_modules/bootstrap/dist/js/bootstrap.js"],
+    src: [
+      "node_modules/bootstrap/dist/js/bootstrap.js",
+      "node_modules/jquery/dist/jquery.js",
+    ],
     dest: "public",
   },
   scss: {
