@@ -32,6 +32,6 @@ textarea {
 
 .show-div {
     border-right-style: solid;
-    border-right-color: rgba(35, 205, 243, .2);
+    border-right-color: rgba(0, 0, 0, .1);
     border-width: 1px;
 }

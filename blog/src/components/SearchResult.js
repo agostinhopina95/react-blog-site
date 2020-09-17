@@ -8,10 +8,10 @@ class SearchResult extends Component {
         <h3 className="mb-5">Search Result</h3>
         <div className="row articles">
           <div className="col-6 mb-4">
-            <div class="card h-100">
-              <h4 class="card-header">Card Title</h4>
-              <div class="card-body">
-                <p class="card-text">
+            <div className="card h-100">
+              <h4 className="card-header">Card Title</h4>
+              <div className="card-body">
+                <p className="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Sapiente esse necessitatibus neque.
                 </p>
@@ -19,10 +19,10 @@ class SearchResult extends Component {
             </div>
           </div>
           <div className="col-6 mb-4">
-            <div class="card h-100">
-              <h4 class="card-header">Card Title</h4>
-              <div class="card-body">
-                <p class="card-text">
+            <div className="card h-100">
+              <h4 className="card-header">Card Title</h4>
+              <div className="card-body">
+                <p className="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Sapiente esse necessitatibus neque.
                 </p>

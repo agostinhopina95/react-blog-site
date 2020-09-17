@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div class="main-navbar">
+    <div className="main-navbar">
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <i class="logo fa fa-adn"></i> Article Blog
+            <i className="logo fa fa-adn"></i> Article Blog
           </Link>
           <button
             className="navbar-toggler navbar-toggler-right"
