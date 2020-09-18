@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class ManagerArticle extends Component {
+  getRand = function (min, max) {
+    return parseInt(Math.random() * (max - min) + min);
+  };
+
   constructor(props) {
     super(props);
     this.ev_update_article = this.ev_update_article.bind(this);
@@ -21,8 +25,7 @@ class ManagerArticle extends Component {
   ev_update_article(e) {
     e.preventDefault();
     axios
-      .put("/api/articles/" + "5f6382d18fb26237d09654bb", {
-        id: "77" + this.state.articleID,
+      .put("/api/articles/" + this.state.articleID, {
         title: this.state.title,
         body: this.state.body,
       })
@@ -31,10 +34,22 @@ class ManagerArticle extends Component {
           console.log("Something went wrong");
         }
       });
+    alert("Content updated successfully!");
   }
 
   ev_create_rand_article(e) {
     e.preventDefault();
+
+    axios.get("/api/users/").then((res) => {
+      if (res.status === 200) {
+        const len = res.data.length;
+        const rand = this.getRand(0, len);
+        const anyUser = res.data[rand];
+        if (anyUser !== undefined) {
+          console.log(anyUser._id);
+        }
+      }
+    });
 
     const arrArticles = [
       [
@@ -97,30 +112,39 @@ class ManagerArticle extends Component {
     e.preventDefault();
     axios.get("/api/users/").then((res) => {
       if (res.status === 200) {
-        res.data.forEach(function (val) {
-          axios.delete("/api/users/" + val._id).then((r) => {
-            if (r.status !== 200) {
-              console.log({ error: "error" });
-            }
+        if (typeof res.data.err === "undefined") {
+          res.data.forEach(function (val) {
+            axios.delete("/api/users/" + val._id).then((r) => {
+              if (r.status !== 200) {
+                console.log({ error: "error" });
+                return;
+              }
+            });
           });
-        });
+        }
       } else {
         console.log({ error: "error" });
       }
     });
     axios.get("/api/articles/").then((res) => {
       if (res.status === 200) {
-        res.data.forEach(function (val) {
-          axios.delete("/api/articles/" + val._id).then((r) => {
-            if (r.status !== 200) {
-              console.log({ error: "error" });
-            }
+        if (typeof res.data.err === "undefined") {
+          res.data.forEach(function (val) {
+            axios.delete("/api/articles/" + val._id).then((r) => {
+              if (r.status !== 200) {
+                console.log({ error: "error" });
+                return;
+              }
+            });
           });
-        });
+        }
       } else {
         console.log({ error: "error" });
+        return;
       }
     });
+
+    alert("All articles and Authors deleted successfully!");
   }
   ev_search_article(e) {
     e.preventDefault();
@@ -178,20 +202,20 @@ class ManagerArticle extends Component {
                   <input
                     type="text"
                     onChange={this.handleChangeArticleIDState}
-                    className="form-control"
+                    className="form-control ev-clear"
                     placeholder="Article Id"
                   />
                 </div>
                 <div className="form-group">
                   <input
-                    className="form-control"
+                    className="form-control ev-clear"
                     type="text"
                     onChange={this.handleChangeTitleState}
                     placeholder="Title"
                   />
                 </div>
                 <textarea
-                  className="form-control mb-3"
+                  className="form-control mb-3 ev-clear"
                   name="body"
                   onChange={this.handleChangeBodyState}
                   rows="3"
@@ -199,7 +223,7 @@ class ManagerArticle extends Component {
                 ></textarea>
                 <button
                   type="submit"
-                  className="btn w-100 btn-warning text-light"
+                  className="btn w-100 clk-clear btn-warning text-light"
                 >
                   Update Article
                 </button>
@@ -223,20 +247,15 @@ class ManagerArticle extends Component {
             </div>
 
             <div className="btn-search">
-              <form className="">
-                <input
-                  className="form-control mb-3"
-                  type="text"
-                  onChange={this.handleSearchState}
-                  placeholder="Search by Article Title..."
-                />
-                <button
-                  onClick={this.ev_search_article}
-                  className="btn w-100 btn-success text-light"
-                >
-                  Search
-                </button>
-              </form>
+              <input
+                className="form-control input_search mb-3"
+                type="text"
+                onChange={this.handleSearchState}
+                placeholder="Search by Article Title..."
+              />
+              <button className="btn w-100 btn-success search_button text-light">
+                Search
+              </button>
             </div>
           </div>
         </div>
